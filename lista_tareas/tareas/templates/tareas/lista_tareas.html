@@ -1,0 +1,52 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %}Lista de Tareas{% endblock title %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+        <div class="row align-items-center">
+            <div class="col-sm-4">
+                <h1>Lista Tareas</h1>
+            </div>
+            <div class="col-sm-4">
+                <h4>Bienvenido: {{ user }} </h4>
+                <a href="{% url 'crear-tarea' %}" class="btn btn-primary mt-5 mb-3">Agregar Tarea</a>
+            </div>
+            <div class="d-grid gap-2 mx-auto col-sm-1">
+                <a href="{% url 'logout' %}" class="text-dark btn btn-outline-danger">Salir</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <table class="table table-bordered mt-5">
+            <thead class="table-dark">
+                <tr>
+                    <th class="col-sm-3">Nombre</th>
+                    <th class="col-sm-3">Descripcion</th>
+                    <th class="col-sm-3">Estado</th>
+                    <th class="col-sm-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in tareas %}
+                    <tr class="align-middle">
+                        <td>{{ i.nombre }}</td>
+                        <td>{{ i.descripcion }}
+                        </td>
+                        {% if i.completado == False %}
+                            <td class="table-danger">No completada</td>
+                        {% else %}
+                            <td class="table-success">Completada</td>
+                        {% endif %}
+                        <td>
+                            <a href="{% url 'actualizar-tarea' i.pk %}" class="btn btn-warning btn-sm">Actualizar</a>
+                            <a href="{% url 'eliminar-tarea' i.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,14 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %} Actualizar tarea {% endblock title %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class=>Actualizar Tarea</h1>
+    <form method="post" class="mt-5">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Actualizar tarea" class="btn btn-primary">
+        <a href="{% url 'index' %}" class="btn btn-success">Volver</a>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'empleados/base.html' %}
+
+{% load static %}
+
+{% block style %} {% static 'empleados/base.css' %} {% endblock style %}
+
+{% block title %}Lista empleados{% endblock title %}
+
+
+{% block content %}
+
+    <h1 class="titulo">Lista empleados</h1>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }} alert alert-success" role="alert" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% for i in empleados %}
+        <p>{{ i.nombre_completo }}</p>
+        <p>{{ i.telefono }}</p>
+        <p>{{ i.email }}</p>
+        <p>{{ i.edad }}</p>
+        <p>{{ i.genero }}</p>
+        <hr>
+    {% empty %}
+        <p>No hay ningun empleado almacenado.</p>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,4 +1,14 @@
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Crear empleado">
-</form>
+{% extends 'empleados/base.html' %}
+
+{% load static %}
+
+{% block title %}Crear Empleado{% endblock title %}
+
+{% block style %} {% static 'empleados/base.css' %} {% endblock style %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Crear empleado">
+    </form>
+{% endblock content %}

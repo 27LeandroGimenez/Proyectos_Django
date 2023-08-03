@@ -1,5 +1,22 @@
-<form method="post">{% csrf_token %}
-    <p>Seguro quieres eliminar al siguiente empleado: "{{ empleado.nombre_completo }}"?</p>
+{% extends 'empleados/base.html' %}
+
+{% load static %}
+
+{% block title %}Eliminar empleado{% endblock title %}
+
+{% block style %} {% static 'empleados/base.css' %} {% endblock style %}
+
+{% block content %}
+    <form method="post" class="text-center form-control" style="margin: 100px auto 0px auto; max-width: 800px; border: 1px solid black;">{% csrf_token %}
+    <p>Seguro quieres eliminar al siguiente empleado?</p>
+    <p>Nombre: {{ empleado.nombre_completo }}</p>
+    <p>Telefono: {{ empleado.telefono }}</p>
+    <p>Email: {{ empleado.email }}</p>
+    <p>Edad: {{ empleado.edad }}</p>
+    <p>Genero: {{ empleado.genero }}</p>
+    <p>Fecha creacion: {{ empleado.fecha_creacion }}</p>
     {{ form }}
-    <input type="submit" value="Confirmar">
-</form>
+    <input type="submit" value="Confirmar" class='btn btn-primary'>
+    <a href='{% url "lista-empleados" %}' class='btn btn-success'>Regresar</a>
+    </form>
+{% endblock content %}

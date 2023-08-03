@@ -8,10 +8,15 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
 class EmpleadosListView(ListView):
-    model = Empleado
     context_object_name = 'empleados'
     template_name = 'empleados/lista_empleados.html'
+    paginate_by = 5
 
+    def get_queryset(self):
+        buscar_empleado = self.request.GET.get('q', '')
+        lista = Empleado.objects.filter(nombre_completo__icontains=buscar_empleado)
+        return lista
+    
 class EmpleadoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Empleado
     fields = ('__all__')

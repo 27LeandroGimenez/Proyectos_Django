@@ -7,7 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
-class EmpleadosListView(ListView):
+class EmpleadosListView(LoginRequiredMixin ,ListView):
     context_object_name = 'empleados'
     template_name = 'empleados/lista_empleados.html'
     paginate_by = 5
@@ -31,7 +31,8 @@ class EmpleadoUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('lista-empleados')
     success_message = 'Empleado actualizado exitosamente.'
 
-class EmpleadoDeleteView(LoginRequiredMixin, DeleteView):
+class EmpleadoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Empleado
     template_name = 'empleados/eliminar_empleado.html'
     success_url = reverse_lazy('lista-empleados')
+    success_message = 'Empleado eliminado exitosamente.'

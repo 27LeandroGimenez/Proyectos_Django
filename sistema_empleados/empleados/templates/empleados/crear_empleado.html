@@ -7,8 +7,46 @@
 {% block style %} {% static 'empleados/base.css' %} {% endblock style %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Crear empleado">
+
+    <style>
+        #id_nombre_completo, #id_telefono, #id_email, #id_edad, #id_genero {
+            display: block;
+            width: 100%;
+        }
+
+        #id_genero {
+            text-align: center;
+        }
+
+        .nombre-modelo {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+
+    <form method="post" class="text-center form-control" style="margin: 100px auto 0px auto; max-width: 800px; border: 1px solid black;">{% csrf_token %}
+        <div>
+            <label for="" class="nombre-modelo">Nombre completo</label>
+            <span class="form-control">{{ form.nombre_completo }}</span>
+        </div>
+        <div>        
+            <label for="" class="nombre-modelo">Telefono</label>
+            <span class="form-control">{{ form.telefono }}</span>
+        </div>
+        <div>
+            <label for="" class="nombre-modelo">Email</label>
+            <span class="form-control">{{ form.email }}</span>
+        </div>
+        <div>
+            <label for="" class="nombre-modelo">Edad</label>
+            <span class="form-control">{{ form.edad }}</span>
+        </div>
+        <div>
+            <label for="" class="nombre-modelo">Genero</label>
+            <span class="form-control">{{ form.genero }}</span>           
+        </div>
+        
+        <input type="submit" value="Crear empleado" class="btn btn-primary form-control" style="margin-top: 20px;">
+        <a href='{% url "lista-empleados" %}' class='btn btn-success' style="margin-top: 20px; display: block;">Regresar</a>
     </form>
 {% endblock content %}

@@ -17,7 +17,7 @@
         <span class=""><i class="fa-solid fa-user"></i> {{ user.get_username }}</span>
         <a href="{% url 'logout' %}" class="btn btn-danger">Salir</a>
     {% else %}
-        <a href="{% url 'login' %}" class="btn btn-primary">Ingresar</a>
+        {% block ingresar %}{% endblock ingresar %}
     {% endif %}
     </nav>
 

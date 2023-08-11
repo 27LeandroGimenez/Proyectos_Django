@@ -3,6 +3,7 @@
 # Las cosas que se pueden hacer en el proyecto son:
   - Logear, Logout.
   - El usuario tiene la posibilidad de agregar, editar, eliminar a un empleado.
+  - Posibilidad de buscar un empleado por su nombre.
 
 # Tecnologias utilizadas:
   - Django

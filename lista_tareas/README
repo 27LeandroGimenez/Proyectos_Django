@@ -1,12 +1,12 @@
-# Este projecto consiste en un sistema que permite almacenar empleados. Cada empleado cuenta con los siguientes datos: Nombre completo, telefono, email, edad, genero, fecha de creacion y fecha de actualizacion.
+# Este projecto consiste en un sistema de lista de tareas.
 
 # Las cosas que se pueden hacer en el proyecto son:
-  - Logear, Logout.
-  - El usuario tiene la posibilidad de agregar, editar, eliminar a un empleado.
+  - Registrarse, Logear, Logout.
+  - Cada usuario tiene la posibilidad de agregar, modificar, eliminar sus propias tareas.
+  - Poder marcar las tareas como terminadas.
 
 # Tecnologias utilizadas:
   - Django
   - Python
   - Html
   - Boostrap
-  - Fontawesome

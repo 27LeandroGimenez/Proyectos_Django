@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/d9e5d623d1.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid" style="padding: 0;">
+        <header class="d-flex align-items-center justify-content-between flex-wrap bg-light">
+            <h1 class="mx-3"><a href="{% url 'inicio' %}" style="text-decoration: none; color: black; font-size: 30px;"><i class="fa-solid fa-store" style="color: #ff0000;"></i>E-commerce</a></h1>
+            <form method="get" class="d-flex flex-wrap align-items-stretch">
+                {% csrf_token %}
+                <input type="search" name='kword' id="kword" class="form-control me-1 mb-1 border-black" style="width: 250px; max-width: 100%;">
+                <button type="submit" class="btn btn-success mb-1"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'carrito' %}" class="btn btn-secondary mb-1 me-3"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="{% url 'crear-producto' %}" class="btn btn-primary mb-1 me-3">Agregar producto</a>
+                    <a href="{% url 'logout'%}" class="btn btn-primary mb-1 me-3">Salir</a>
+                </div>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary mb-1 me-3">Acceder</a>
+            {% endif %}
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html>

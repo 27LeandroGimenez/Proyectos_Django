@@ -1,0 +1,50 @@
+{% extends 'producto/base.html' %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock %} 
+
+{% block content %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <h3 class="text-center mt-5">Categorias</h3>
+    <form action="" method="get">
+        {% csrf_token %}
+        <div class="categorias d-flex justify-content-center align-items-center flex-wrap">
+            {% for categoria in categorias %}
+                <a href="{% url 'inicio' %}?categoria={{categoria.nombre}}" class="btn btn-outline-secondary m-1" name="categoria">{{ categoria.nombre }}</a>
+            {% endfor %}
+        </div>
+    </form>
+
+    <h3 class="text-center mt-5">Productos</h3>
+    <div class="productos d-flex justify-content-center align-items-center flex-wrap">
+        {% for producto in productos %}
+            <div class="card me-3" style="width: 16rem;">
+                <img src="{{ producto.imagen.url }}" class="" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre}}</h5>
+                    <p>$ {{ producto.precio }}</p>
+                    <p>Publicacion creada: {{ producto.fecha_creacion }}</p>
+                    <p>Usuario: {{ producto.usuario }}</p>
+                    <form method="post" action="{% url 'agregar-al-carrito' producto.id %}" class="d-flex justify-content-center">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success form-control">Agregar al Carrito</button>
+                    </form>
+                    {% if producto.usuario == user %}
+                        <a href="{% url 'actualizar-producto' producto.id %}" class="btn btn-warning d-flex justify-content-center mt-1">Editar</a>
+                        <a href="{% url 'eliminar-producto' producto.id %}" class="btn btn-danger d-flex justify-content-center mt-1">Eliminar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

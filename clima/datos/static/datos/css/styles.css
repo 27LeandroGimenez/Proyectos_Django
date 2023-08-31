@@ -1,0 +1,82 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: rgb(91,91,91);
+    background: linear-gradient(180deg, rgba(91,91,91,1) 0%, rgba(255,255,255,1) 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.header {
+    background-color: black;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+.contenido {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 5rem;
+}
+
+@media (min-width: 480px) {
+    .input-buscar{
+        width: 50rem;
+    }
+}
+
+.input-buscar {
+    height: 4rem;
+    font-size: 2rem;
+}
+
+.boton-buscar {
+    height: 4rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+@media (min-width: 480px) {
+    .datos {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+.datos p {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+hr {
+    height: .3rem;
+    background-color: black;
+}

@@ -1,7 +1,7 @@
 # Este projecto consiste en un sistema de lista de tareas.
 
 # Las cosas que se pueden hacer en el proyecto son:
-  - Registrarse, Logear, Logout.
+  - Registrarse, Iniciar session, Cerrar session.
   - Cada usuario tiene la posibilidad de agregar, modificar, eliminar sus propias tareas.
   - Poder marcar las tareas como terminadas.
 

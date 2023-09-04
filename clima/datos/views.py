@@ -1,11 +1,12 @@
 from django.shortcuts import render
 import requests
+from decouple import config
 
 # Create your views here.
 
 def index(request):
     query = request.GET.get('q')
-    api_key = '513b2cd244883c066a971e6b7eb71d2e'
+    api_key = config('API_KEY')
     base_url = 'https://api.openweathermap.org/data/2.5/weather?'
 
     params = {

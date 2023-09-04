@@ -1,7 +1,7 @@
 # Este projecto consiste en un sistema de ecommerce.
 
 # Las cosas que se pueden hacer en el proyecto son:
-    - Registrarse, Logear, Logout.
+    - Registrarse, Iniciar session, Cerrar session.
     - Cada usuario tiene la posibilidad de agregar cualquier producto al carrito.
     - Buscar productos por nombre y tambien la posibilidad de filtrar productos por categoria.
     - Cada usuario va poder ver todos los productos pero solo se le va permitir actualizar o eliminar los productos que creo el mismo.
